@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-kubernetes-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+  - hosts:
+    - hw1.chicho.com.ar
+    - hw2.chicho.com.ar
+    secretName: hello-kubernetes-tls
+  rules:
+  - host: "hw1.chicho.com.ar"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: hello-kubernetes-first
+            port:
+              number: 80
+  - host: "hw2.chicho.com.ar"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: hello-kubernetes-second
+            port:
+              number: 80           
