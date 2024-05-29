@@ -8,11 +8,11 @@ metadata:
 spec:
   tls:
   - hosts:
-    - hw1.chicho.com.ar
-    - hw2.chicho.com.ar
+    - hw1.diegocastro.ar
+    - hw2.diegocastro.ar
     secretName: hello-kubernetes-tls
   rules:
-  - host: "hw1.chicho.com.ar"
+  - host: "hw1.diegocastro.ar"
     http:
       paths:
       - pathType: Prefix
@@ -22,7 +22,7 @@ spec:
             name: hello-kubernetes-first
             port:
               number: 80
-  - host: "hw2.chicho.com.ar"
+  - host: "hw2.diegocastro.ar"
     http:
       paths:
       - pathType: Prefix
