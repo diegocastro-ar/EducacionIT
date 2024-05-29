@@ -27,7 +27,7 @@ metadata:
   name: argocd-issuer-argocd-letsencrypt
 spec:
   acme:
-    email: diegoc@itcsoluciones.com
+    email: temp@diegocastro.ar
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: argocd-letsencrypt-private-key
@@ -50,7 +50,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: 'HTTPS'
 spec:
   rules:
-    - host: argocd.chicho.com.ar
+    - host: argocd.diegocastro.ar
       http:
         paths:
           - path: /
@@ -62,5 +62,5 @@ spec:
                   name: https
   tls:
     - hosts:
-        - argocd.chicho.com.ar
+        - argocd.diegocastro.ar
       secretName: argocd-secret
